@@ -169,7 +169,7 @@ ylim([0 0.2])
 xlabel('elevation/channel depth (-)')
 ylabel('probability (-)')
 legend('control mean', 'treatment mean', 'control stdev', 'treatment stdev', 'MRD', 'GBMD', 'Mekong', 'Rio Grande')
-saveas(fig, '..\figures\Figure5_hypsometry.pdf')
+saveas(fig, '..\figures\Figure4_hypsometry.pdf')
 
 %%Calculate the sum of probability between 0 and 0.5 for the treatment and
 %%global
