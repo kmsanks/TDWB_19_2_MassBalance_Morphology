@@ -1,5 +1,4 @@
-clear all
-close all
+clear all; close all
 %This script calculates delta top area over time for four different
 %categorys (1. above sea level (>= 0 mm relative to sea level (rsl)), 2. total delta top (>= -9 mm rsl), 3. marsh window area (-9 mm to 5
 %mm rsl), and 4. above marsh window (> 5 mm rsl). For the manuscript, we
@@ -11,13 +10,8 @@ cd '../' %We should have opened this code from 'C:\Users\XXXXXXX\Documents\GitHu
 %%%Control experiment
 %%Load control data
 cd '.\data'
-load('TDB_18_data.mat')
+load('ZD_18.mat') %topography; elevation data (mm)
 cd '..\code'
-
-%We only need the elevation data (ZD)
-ZD_18 = Z_maps(:,:,1:560); %remove last 5 hours as that was post-experiment data collection
-clear('C_maps','B_maps','G_maps','R_maps','Z_maps');
-ZD_18(ZD_18(:,:,:)==0.)=NaN; %make data outside the basin NaN
 
 %%Parameters needed for analysis
 nx_18 = size(ZD_18, 1); %number of x locations on map
@@ -71,11 +65,8 @@ end
 %%%Treatment experiment
 %%Load treatment data
 cd '..\data'
-load('ZD_19_2_dry.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
+load('ZD_19.mat'); %load topography array (mm). In here should be a 3D topo array called ZD, oriented space x space x time
 cd '..\code'
-%change topography data to match the name of control experiment
-ZD_19 = ZD_19_2_dry(:,:,:);
-clear('ZD_19_2_dry');
 
 %%Parameters needed for analysis
 nx_19 = size(ZD_19,1); %number of x locations on map
@@ -94,7 +85,7 @@ elevationmask_contour_18 = []; %elevations relative to sea level
 for i=1:nt_19
     %What is sea level at time i
     sl_19 = ((i-1)*baselevel_rr*dt_19)+ocean_zero; %19 scans start at hour 0 so need to subtract 1 from hour
-    elevationmask_19 = ZD_19_2_dry(:,:,i); 
+    elevationmask_19 = ZD_19(:,:,i); 
     elevationmask_19(elevationmask_19 == 0) = NaN;
     
     %subaerial 

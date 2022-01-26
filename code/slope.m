@@ -1,7 +1,6 @@
-clear all
-close all
+clear all; close all
 %This script calculates slopes for both the control and
-%treatment experiment subaerial marsh window 9-9 to 5 mm relative to sea level (rsl) and above marsh (> 5 mm rsl). 
+%treatment experiment subaerial marsh window -9 to 5 mm relative to sea level (rsl) and above marsh (> 5 mm rsl). 
 %This data is used to create Figure 2c 
 
 %%First, lets set our relative path, we should have opened this file from 
@@ -10,13 +9,8 @@ cd '..\' %We should have opened this code from 'C:\Users\XXXXXXX\Documents\GitHu
 %%%Control experiment
 %%Load control data
 cd '.\data'
-load('TDB_18_data.mat')
+load('ZD_18.mat') %topography; elevation data (mm)
 cd '..\code'
-
-%We only need the elevation data (ZD)
-ZD_18 = Z_maps(:,:,1:560); %remove last 5 hours as that was post-experiment data collection, elevation data is in mm 
-clear('C_maps','B_maps','G_maps','R_maps','Z_maps');
-ZD_18(ZD_18(:,:,:)==0.)=NaN; %make data outside the basin NaN
 
 %%Parameters needed for analysis
 nx_18 = size(ZD_18, 1); %number of x locations on map
@@ -82,11 +76,8 @@ am_std_slope_18 = nanstd(am_slope_18);
 %%%Treatment experiment
 %%Load treatment data
 cd '..\data'
-load('ZD_19_2_dry.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
+load('ZD_19.mat'); %load topography array (mm). In here should be a 3D topo array called ZD, oriented space x space x time
 cd '..\code'
-%change topography data to match the name of control experiment
-ZD_19 = ZD_19_2_dry(:,:,:);
-clear('ZD_19_2_dry');
 
 %%Parameters needed for analysis
 nx_19 = size(ZD_19,1); %number of x locations on map

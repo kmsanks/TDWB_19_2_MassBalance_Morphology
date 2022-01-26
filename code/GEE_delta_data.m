@@ -18,7 +18,7 @@ MRD = zeros(61,4); %empty data
 MRD(:,1) = elev_MRD'; %transpose elevation bins
 %copy and paste counts from excel into column 2 (raw excel data can be
 %found in the data folder
-MRD(:,3) = MRD(:,1)/30; %normalize by chnnel depth; 60m is the data in feet(200 chan depth) or meters
+MRD(:,3) = MRD(:,1)/30; %normalize by chnnel depth (30m) 
 MRD(:,4) = MRD(:,2)/nansum(MRD(:,2));
 save '..\data\MRD.mat' MRD;
 
@@ -27,7 +27,7 @@ elev_GBMD = -31:2:89;
 GBMD = zeros(61,4);
 GBMD(:,1) = elev_GBMD';
 %copy and paste counts from excel into column 2
-GBMD(:,3) = GBMD(:,1)/30; %normalize by chnnel depth; 295m is the data in feet(968 chan depth) or meters
+GBMD(:,3) = GBMD(:,1)/30; %normalize by chnnel depth (30 m) 
 GBMD(:,4) = GBMD(:,2)/nansum(GBMD(:,2)); 
 save '..\data\GBMD.mat' GBMD;
 
@@ -36,7 +36,7 @@ elev_mekong = -11:2:31;
 mekong = zeros(22,4);
 mekong(:,1) = elev_mekong';
 %copy and paste counts from excel into column 2
-mekong(:,3) = mekong(:,1)/10; %normalize by chnnel depth; 10 to 25m is the data in feet or meters
+mekong(:,3) = mekong(:,1)/10; %normalize by chnnel depth (10 m)
 mekong(:,4) = mekong(:,2)/nansum(mekong(:,2)); 
 save '..\data\mekong.mat' mekong;
 
@@ -45,7 +45,7 @@ elev_riogrande = -15:2:45;
 riogrande = zeros(31,4);
 riogrande(:,1) = elev_riogrande';
 %copy and paste counts from excel into column 2
-riogrande(:,3) = riogrande(:,1)/15; %normalize by chnnel depth; 60m is the data in feet(200 chan depth) or meters
+riogrande(:,3) = riogrande(:,1)/15; %normalize by chnnel depth (60 m)
 riogrande(:,4) = riogrande(:,2)/nansum(riogrande(:,2));
 save '..\data\riogrande.mat' riogrande;
 

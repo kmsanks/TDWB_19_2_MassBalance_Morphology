@@ -1,5 +1,4 @@
-clear all
-close all
+clear all; close all
 %%The purpose of this script is to calculate an average radial profile of
 %%the experimental delta tops. This sript creates Figure 2d
 %% Definitions
@@ -8,16 +7,9 @@ cd '..\' %We should have opened this code from 'C:\Users\XXXXXXX\Documents\GitHu
 
 %%Load control data
 cd '.\data'
-load('TDB_18_data.mat')
+load('ZD_18.mat') %topography; elevation data (mm)
+load('chanMaps_18.mat') %binary channel maps; channels are 1
 cd '..\code'
-
-%We only need the elevation data (ZD)
-ZD_18 = Z_maps(:,:,1:560); %remove last 5 hours as that was post-experiment data collection, elevation data is in mm 
-ZD_18(ZD_18(:,:,:)==0.)=NaN; %make data outside the basin NaN
-chanMaps_18 = C_maps;
-chanMaps_18(:,:,298) = ~chanMaps_18(:,:,298); %inverse map
-chanMaps_18(:,:,333) = ~chanMaps_18(:,:,333); %inverse map
-clear('C_maps','B_maps','G_maps','R_maps','Z_maps');
 
 %%Parameters needed for analysis
 nx_18 = size(ZD_18, 1); %number of x locations on map
@@ -35,14 +27,11 @@ yentrance_18 = 271; %y grid node location of the entrance channel
 %%Load treatment data
 %%Load treatment data
 cd '..\data'
-load('ZD_19_2_dry.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
-load('TDWB_19_2_chanMaps.mat');
-cd '..\code'
-%change topography data to match the name of control experiment
-ZD_19 = ZD_19_2_dry(:,:,1:280);
-chanMaps_19 = TDWB_19_2_chanMaps;
+load('ZD_19.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
+ZD_19 = ZD_19(:,:,1:280); %to match channel maps
+load('chanMaps_19.mat'); %binary channel maps; channels are 1
 chanMaps_19 = chanMaps_19(:,:,2:2:end); %every other to match elevation data 
-clear('ZD_19_2_dry','TDWB_19_2_chanMaps');
+cd '..\code'
 
 %%Parameters needed for analysis
 nx_19 = size(ZD_19,1); %number of x locations on map

@@ -6,7 +6,7 @@ close all
 %downloaded from hand-drawn polygons in Google Earth Engine (GEE) and
 %to the elevation hypsometry of the control and treatment
 %experiments
-%This script produces Figure 5
+%This script produces Figure 4
 
 %%First lets load the GEE delta data
 cd('../data');
