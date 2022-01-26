@@ -21,12 +21,17 @@ Please clone the repository in full in order to use the repo, as the code relies
 1. ZD_18.mat - A matrix of size 796x522x560, where 560 is time. Each timestep contains a elevation data collected from the control experiment via LiDAR and post-processed into a 5mmx5mm grid. The data has 796 rows and 522 columns corresponding to basin location.
   
   *Note that the matrix has 560 timesteps, which corresponds to one LiDAR scan per hour. The first run hour is t = 1, total run time = 560 hours.
+  
 2. ZD_19.mat - A matrix of size 750x747x281, where 281 is time. Each timestep contains a elevation data collected from the treatment experiment via LiDAR and post-processed into a 5mmx5mm grid. The data has 750 rows and 747 columns corresponding to basin location. 
   
   *Note that the matrix only has 281 timesteps because the LiDAR data was collected every other hour. The first run hour is t = 0, total run time = 560 hours.
+  
 3. chanMaps_18.mat - A matrix of size 796x522x560. The data contained herein is the same reference frame as described above for ZD_18 (control). This data is a binary matrix, where channel pixels = 1 and non-channel pixels = 0.
+ 
 4. chanMaps_19.mat - A matrix of size 796x522x560. The data contained herein is the same reference frame as described above for ZD_19 (treatment). This data is a binary matrix, where channel pixels = 1 and non-channel pixels = 0.
+
 5. interpolated_marsh_strat_frac.mat - A matrix of 750x747 containing the interpolated fraction of marsh preserved in the stratigraphy (i.e., thickness of marsh deposit at pixel/total stratigraphic thickness of pixel). For interpolation methods see the supporting information from (Sanks et al, in review). 
+
 6. MRD.mat (61x4), GBMD.mat (61x4), mekong.mat (22x4), riogrande.mat (31x4) - Global delta data. These data contain 4 columns. Column 1 is the median elevation of 2 m bins, column 2 is the number of pixels at that elevation, column 3 is the normalized elevation (column 1/channel depth), and column 4 is the probability of a pixel being in that elevation bin (column 2/sum(column 2)). 
   
   *Note: the data herein comes from Google Earthh Engine ETOPO. The raw data can be found in the corresponding *_raw.csv
