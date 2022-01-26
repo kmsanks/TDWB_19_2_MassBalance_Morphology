@@ -23,13 +23,8 @@ load('riogrande.mat');
 
 %%%Control
 %%Load control data
-load('TDB_18_data.mat')
+load('ZD_18.mat')
 cd '..\code'
-
-%We only need the elevation data (ZD)
-ZD_18 = Z_maps(:,:,1:560); %remove last 5 hours as that was post-experiment data collection, elevation data is in mm 
-clear('C_maps','B_maps','G_maps','R_maps','Z_maps');
-ZD_18(ZD_18(:,:,:)==0.)=NaN; %make data outside the basin NaN
 
 %%Parameters needed for analysis
 nx_18 = size(ZD_18, 1); %number of x locations on map
@@ -73,11 +68,9 @@ elev_18_1_vals = reshape(elevations_18_1, 1, []);
 %%%Treatment experiment
 %%Load treatment data
 cd '..\data'
-load('ZD_19_2_dry.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
+load('ZD_19.mat'); %load topography array. In here should be a 3D topo array called ZD, oriented space x space x time
+ZD_19 = ZD_19(:,:,1:280); %same time step as control
 cd '..\code'
-%change topography data to match the name of control experiment
-ZD_19 = ZD_19_2_dry(:,:,1:280); %same time step as control
-clear('ZD_19_2_dry');
 
 %%Parameters needed for analysis
 nx_19 = size(ZD_19,1); %number of x locations on map
@@ -165,7 +158,7 @@ plot(GBMD(:,3), GBMD(:,4), 'linewidth', 2)
 plot(mekong(:,3), mekong(:,4), 'linewidth', 2)
 plot(riogrande(:,3), riogrande(:,4), 'linewidth', 2)
 xlim([-1 3])
-ylim([0 0.2])
+ylim([0 0.25])
 xlabel('elevation/channel depth (-)')
 ylabel('probability (-)')
 legend('control mean', 'treatment mean', 'control stdev', 'treatment stdev', 'MRD', 'GBMD', 'Mekong', 'Rio Grande')
