@@ -30,8 +30,9 @@ Please clone the repository in full in order to use the repo, as the code relies
 
 ## Core Script Files: TDWB_19_2_MassBalance_Morphology\data
 1. area.m - This script calculates area of both the control and treatment experiments for different zones of the delta. 
-  -This sciript produces Figure 2a. 
-  -Data needed: ZD_18.mat and ZD_19.mat.
+   Markup : * Bullet list
+  * This sciript produces Figure 2a. 
+  * Data needed: ZD_18.mat and ZD_19.mat.
 2. elevation_histogram.m - This script calculates the distribution of elevations relative to sea level for both the control and treatment experiments.
   -This script produces Figure 2b.
   -Data needed: ZD_18.mat and ZD_19.mat.
