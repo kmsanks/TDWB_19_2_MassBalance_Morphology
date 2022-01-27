@@ -73,7 +73,7 @@ Please clone the repository in full in order to use the repo, as the code relies
     * The data here is clipped to -1 to 3 channel depths relative to sea level.
     * Only paste the data within this range. 
 
-##Figures
+## Figures
 The figures will be created when the scripts are run. Currently there is only a README.txt files in this folder as a place holder. 
 
 ## Using this repository
