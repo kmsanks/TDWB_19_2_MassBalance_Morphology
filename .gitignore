@@ -1,5 +1,5 @@
 #This is the gitignore file for the code repository: TDWB_19_2_MassBalance_Morphology
 
-#data/
+#ignore autosave files and figures
 code/*.asv
-figures/*.pdf
+figures/*
