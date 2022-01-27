@@ -1,4 +1,6 @@
 # TDWB_19_2_MassBalance_Morphology
+[![DOI](https://sandbox.zenodo.org/badge/451958614.svg)](https://sandbox.zenodo.org/badge/latestdoi/451958614)
+
 ## Introduction
 This README file describes kmsanks/TDWB_19_2_MassBalance_Morphology repository of scripts used to calculate changes in morphology and mass balance due to marsh deposition in an experimental setting. The raw experimental data can be found in the Tulane_Sediment_Dynamics_Stratigraphy_TSDS project space at: https://sead2.ncsa.illinois.edu/spaces/5825f529e4b0f3dd19c8d93a. The data used here is TDB-18-1 and TDWB-19-2-Surface-Processes. The processed data used in the code is contained herein. 
 
