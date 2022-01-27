@@ -6,7 +6,7 @@ The experimental delta data come from two experiments run at the Tulane Sediment
 For more information on experimental conditions, please see the data repositories hosted at: https://sead2.ncsa.illinois.edu/spaces/5825f529e4b0f3dd19c8d93a.
 
 ## What does this repository provide?
-This repository contains all of the code relevant to produce the results and figures contained in the manuscript titled "Marsh sedimentation controls delta slope and morphology in an experimental setting (Sanks et al., in review)". The code contained herein was written using MATLAB R2019b. Note: all the "Core Script Files" should run out the box, as relative paths were used in creation of this script.
+This repository contains all of the code relevant to produce the results and figures contained in the manuscript titled "Marsh sedimentation controls delta top morphology, slope, and mass balance (Sanks et al., in review)". The code contained herein was written using MATLAB R2019b. Note: all the "Core Script Files" should run out the box, as relative paths were used in creation of this script.
 
 ## Contents
 The repository contains three folders:
