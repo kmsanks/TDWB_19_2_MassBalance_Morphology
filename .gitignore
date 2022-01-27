@@ -2,4 +2,4 @@
 
 #ignore autosave files and figures
 code/*.asv
-figures/*
+figures/*.pdf
