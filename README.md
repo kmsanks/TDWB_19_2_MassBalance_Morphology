@@ -72,6 +72,9 @@ Please clone the repository in full in order to use the repo, as the code relies
     * User must copy/paste data from the delta .csv files included (e.g., MRD_raw.csv, GBMD_raw.csv, mekong_raw.csv, and riogrande_raw.csv).
     * The data here is clipped to -1 to 3 channel depths relative to sea level.
     * Only paste the data within this range. 
-    
+
+##Figures
+The figures will be created when the scripts are run. Currently there is only a README.txt files in this folder as a place holder. 
+
 ## Using this repository
 Clone the repository. The scripts can be run in any order, but please note that the "Supplementary Script Files" will not run without some copy and paste from the .csv files provided in the "data" folder. More information can be found in script.  
