@@ -49,11 +49,8 @@ Please clone the repository in full in order to use the repo, as the code relies
 2. elevation_histogram.m - This script calculates the distribution of elevations relative to sea level for both the control and treatment experiments.
    * This script produces Figure 2b.
    * Data needed: ZD_18.mat and ZD_19.mat.
-3. slope.m - This script calculates the delta top slope for different zones in both the control and treatment experiments using a gradient.
-   * This script produces Figure 2c.
-   * Data needed: ZD_18.mat and ZD_19.mat
-4. radial_elevation.m - This script calculates the mean and standard deviation about the mean for various radial distances from the entrance channel for both the control and treatment experiments.
-   * This script produces Figure 2d.
+4. slope_and_radial_elevation.m - This script calculates the mean and standard deviation about the mean for various radial distances from the entrance channel for both the control and treatment experiments, as well as the slope through time for both the region above the marsh window and in the marsh window for each experiment.
+   * This script produces Figures 2c and 2d.
    * Data needed: ZD_18.mat, ZD_19.mat, chanMaps_18.mat, and chanMaps_19.mat.
 5. volume.m - This script calculates the 50% delta top, 10% marsh window, and 90% above marsh volume for the control and treatment experiments. See manuscript for further details.
    * This script produces some results in Table 1.
