@@ -42,7 +42,7 @@ for i=1:2:size(ZD_18,3); %we will use every other timestep for control to compar
     elevationmask_rslr_rmnan = elevationmask_rslr(~isnan(elevationmask_rslr));
     elevations_18_1(1:length(elevationmask_rslr_rmnan),k) = elevationmask_rslr_rmnan;
     %counts and bin edges
-    [N, edges] = histcounts(elevationmask_rslr_rmnan(~isnan(elevationmask_rslr_rmnan)), 'normalization', 'probability','binwidth', 5);
+    [N, edges] = histcounts(elevationmask_rslr_rmnan(~isnan(elevationmask_rslr_rmnan)), 'normalization', 'pdf','binwidth', 5);
     N_18(k, 1:length(N)) = N;
     edges_18(k, 1:length(edges)) = edges;
 end 
@@ -78,7 +78,7 @@ for i=1:nt_19;
     elevationmask_rslr_rmnan = elevationmask_rslr(~isnan(elevationmask_rslr));
     %remove nan to not bias distribution
     elevations_19_2(1:length(elevationmask_rslr_rmnan),i) = elevationmask_rslr_rmnan;
-    [N, edges] = histcounts(elevationmask_rslr_rmnan(~isnan(elevationmask_rslr_rmnan)), 'normalization', 'probability','binwidth', 5);
+    [N, edges] = histcounts(elevationmask_rslr_rmnan(~isnan(elevationmask_rslr_rmnan)), 'normalization', 'pdf','binwidth', 5);
     N_19(i, 1:length(N)) = N;
     edges_19(i, 1:length(edges)) = edges;
 end 
@@ -133,8 +133,9 @@ plot(x19, y19, 'g-', 'LineWidth', 2)
 patch([x18 fliplr(x18)], [curve1_18 fliplr(curve2_18)], 'b')
 patch([x19 fliplr(x19)], [curve1_19 fliplr(curve2_19)], 'g')
 alpha(0.25)
-xlabel('elevation relative to sea level (mm)')
 xticks(-50:10:50)
-ylabel('probability (-)')
+ylim([0 0.04])
+xlabel('\eta = elevation relative to sea level (mm)')
+ylabel('P(\eta)')
 legend('control mean', 'treatment mean', 'control stdev', 'treatment stdev')
 saveas(gcf, '..\figures\Figure2b_elevation_pdf.pdf')
