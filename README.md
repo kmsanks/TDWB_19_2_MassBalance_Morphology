@@ -41,8 +41,10 @@ Please clone the repository in full in order to use the repo, as the code relies
   *MRD = Mississippi River Delta, GBMD = Ganges Brahamaputra Meghna River Delta, mekong = Mekong River Delta, and riogrande = Rio Grande River Delta.
   
   *The elevation data ranges from -1 to 3 channel depths relative to sea level. 
+ 
+7. strat_data.csv - The marsh fraction and thickness obtained from photogrametric analysis of the stratigraphic sections. The first column is the X coordinate (pixels), the second column is the Y coordinate (pixels), the third column is the marsh fraction (-), and the fourth column is the marsh thickness (cm). 
 
-## Core Script Files: TDWB_19_2_MassBalance_Morphology\data
+## Core Script Files: TDWB_19_2_MassBalance_Morphology\code
 1. area.m - This script calculates area of both the control and treatment experiments for different zones of the delta. 
    * This sciript produces Figure 2a. 
    * Data needed: ZD_18.mat and ZD_19.mat.
@@ -53,27 +55,37 @@ Please clone the repository in full in order to use the repo, as the code relies
    * This script produces Figures 2c and 2d.
    * Data needed: ZD_18.mat, ZD_19.mat, chanMaps_18.mat, and chanMaps_19.mat.
 5. volume.m - This script calculates the 50% delta top, 10% marsh window, and 90% above marsh volume for the control and treatment experiments. See manuscript for further details.
-   * This script produces some results in Table 1.
+   * This script produces some results in Table 2.
    * Data needed: ZD_18.mat, ZD_19.mat, and interpolated_marsh_strat_frac.mat.
 6. trapping_efficiency.m - This script calculates the trapping efficiency for the regions describe above (volume.m), as well as the volume accumulated in the off-shore for both the control and treatment experiments.
-   * This script produces some results in Table 1 and Figure 3.
+   * This script produces some results in Table 2 and SI Figure 2.
    * Data needed: ZD_18.mat, ZD_19.mat, and interpolated_marsh_strat_frac.mat.
 7. delta_hypsometry.m - This script calculates the global delta hypsometry and the experimental delta hypsometry (normalized by channel depth for comparison across scales).
-   * This script produces Figure 4.
+   * This script produces Figure 3.
    * Data needed: MRD.mat, GBMD.mat, mekong.mat, riogrande.mat, ZD_18.mat, and ZD_19.mat.
-  
+
 ## Supplementary Script Files
  1. GEE_delta_data.m - This script creates the matrices of the global delta data (MRD.mat, GBMD.mat, mekong.mat, and riogrande.mat).
   
-  *Note: This script does not needed to be run because the data produced here is already included in the repository.
+  *Note: This script does not needed to be run because the data produced here is already included in the repository (MRD.mat, GBMD.mat, mekong.mat, and riogrande.mat).
   
   *Note: This script will not run out of the box, and you must read through and follow the step by step directions contained in the code in order to replicate the matrices provided. 
     * User must copy/paste data from the delta .csv files included (e.g., MRD_raw.csv, GBMD_raw.csv, mekong_raw.csv, and riogrande_raw.csv).
     * The data here is clipped to -1 to 3 channel depths relative to sea level.
     * Only paste the data within this range. 
+	
+2. strat_marshfrac_interpolation.R - This script uses Bayesian kriging to interpolate the stratigraphic marsh fraction across the delta top. 
+   
+   *Note: This script does not needed to be run because the data produced here is already included in the repository (interpolated_marsh_strat_frac.mat).
+   
+   * This script produces the data used to create SI Figure 1 and associated information referenced in SI Text 2.1.
+   * Data needed: strat_data.csv
 
 ## Figures
 The figures will be created when the scripts are run. Currently there is only a README.txt files in this folder as a place holder. 
 
+## data/interpolation
+This folder is a placeholder and if the script "strat_marshfrac_interpolation.R" is run, the data populated via this script will be saved here.
+
 ## Using this repository
-Clone the repository. The scripts can be run in any order, but please note that the "Supplementary Script Files" will not run without some copy and paste from the .csv files provided in the "data" folder. More information can be found in script.  
+Clone the repository. The scripts can be run in any order, but please note that the "Supplementary Script Files" will not run without some copy and paste from the .csv files provided in the "data" folder. More information can be found in script. Please also note that in order for strat_marshfrac_interpolation.R to work out of box, the script must be sourced and not run.
